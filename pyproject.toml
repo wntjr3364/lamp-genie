@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lamp-genie"
+version = "1.0.0"
+description = "Genie, the tool-calling language-model agent of the LAMP materials database"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+dependencies = [
+    "Django>=5.2.8,<6",
+    "djangorestframework>=3.16.1,<4",
+    "psycopg2-binary>=2.9.11,<3",
+    "pydantic>=2.12.5,<3",
+    "langchain-classic>=1.0.0,<2",
+    "langchain-community>=0.4.1,<0.5",
+    "langchain-core>=1.1.0,<2",
+    "langchain-openai>=1.1.0,<2",
+    "openai>=2.8.1,<3",
+    "faiss-cpu>=1.13.0,<2",
+    "numpy>=1.26.4,<2",
+    "pymatgen>=2025.10.7,<2026",
+]
+
+[project.scripts]
+lamp-genie = "lamp_genie.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["lamp_genie*", "materials*"]
